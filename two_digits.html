@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TipsNote : GitHub Pages Sample</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
+</head>
+
+<body>
+<main>
+  <h1>２桁の足し算</h1>
+
+  <script>
+    myHit = 0;
+    myNowCnt = 0; // 問題を出すテーブルカウンタ
+    myLastCnt = 10; // 問題の数
+    var myy1, myy2, ayy1;
+    var qqaa = new Array();
+    var qqbb = new Array();
+    var qqcc = new Array();
+    var qqdd = new Array();
+    var aaaa = new Array();
+
+    function mySet() {
+      myy1 = Math.floor(Math.random() * 99) + 1;
+      myy2 = Math.floor(Math.random() * 99) + 1;
+      document.getElementById('atoi').innerHTML = myy1 + "+" + myy2 + "="; // 足し算の問題の値(左) をフォームへセット
+      document.myForm.myFormA.value = ""; // 足し算の答え 入力欄をクリア
+    }
+    // 入力した答えが正解か不正解かを判定する関数 (答えを入力して、[OK]ボタンを押した時の処理)
+    function myCheck() {
+      myA = eval(document.myForm.myFormA.value); // 入力された 足し算の答え を取得
+      ayy1 = myy1 + myy2; // 足し算の答えを計算
+      if (ayy1 == myA) { // 答えと入力した値は等しいか(正解か)?
+        myHit++;
+        document.getElementById('ytr001').innerHTML = ("あったりぃ😆");
+        qqcc.push("○");
+      } else {
+        document.getElementById('ytr001').innerHTML = ("はずれ 😭よーく考えて😤");
+        qqcc.push("×");
+      }
+      qqaa.push(myy1);
+      qqbb.push(myy2);
+      aaaa.push(myA);
+      qqdd.push(ayy1);
+      mySet(); // 次の問題をセット
+      if (myNowCnt == myLastCnt - 1) { // 問題終わった？
+        myScore = myHit * 10; // 得点計算
+        document.getElementById('ytr002').innerHTML = ("問題終了です。" + myLastCnt + "問中" + myHit + "問正解。点数は" + myScore + "点です。");
+        myNowCnt = 0;
+        myHit = 0;
+        var hantei = "";
+        var seitou = document.getElementById('kaitou');
+        hantei += "<table id=\"seiseki\"><tr><td>問題</td><td>あなたの答え</td><td>判定</td><td>正答</td></tr>";
+        for (i = 0; i < 10; i = i + 1) {
+          hantei += "<tr><td>";
+          hantei += qqaa[i];
+          hantei += "+";
+          hantei += qqbb[i];
+          hantei += "</td><td>";
+          hantei += aaaa[i];
+          hantei += "</td><td>";
+          hantei += qqcc[i];
+          hantei += "</td><td>";
+          hantei += qqdd[i];
+          hantei += "</td></tr>";
+        }
+        hantei += "</table>";
+        seitou.innerHTML = hantei;
+        qqaa = [];
+        qqbb = [];
+        qqcc = [];
+        qqdd = [];
+        aaaa = [];
+      } else { // 次の問題へ
+        myNowCnt++;
+        document.getElementById('ytr002').innerHTML = ("いま、"+myNowCnt + "問中" + myHit + "問正解したよ😄");
+        myScore = myHit * 10; // 得点計算
+        document.getElementById('ytr002').innerHTML = (myLastCnt + "問中" + myHit + "問正解。点数は" + myScore + "点です。");
+      }
+    }
+  </script>
+  <div class="midashidai">
+    <h2>
+      さて、もんだいです。次の足し算を計算してください。
+    </h2>
+  </div>
+
+  <div id="atoi"></div>
+
+  <form name="myForm">
+    <input class="ansyou" type="number" autocomplete="off" min="0" size="2" name="myFormA">
+    <input class="ansbot" type="button" value="ＯＫ" onclick="myCheck()">
+  </form>
+
+  <div id="ytr001"></div>
+  <div id="ytr002"></div>
+  <div id="kaitou"></div>
+
+  <script type="text/javascript"><!--
+  mySet(); // 初回の問題をフォームへセット
+  // --></script>
+</main>
+
+</body>
+</html>
