@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title HTML5サンプル1
+    %meta{:charset => "UTF-8"}/
+    %script{:src => "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"}
+  %body
+    %h1 vuejs サンプル
+    #app
+      %ol{ v: { html: 'messages' } }
+      %input{ type: 'text', value: 'doInput(event)' }
+      %button{ onclick: 'doAction()' }
+    :javascript
+      var data = { messages: '<li>first</li>' }
+
+      var app = new Vue({
+        el: '#app',
+        data: data
+      })
+
+      function doInput (event) {
+        data.message = event.target.value
+      }
+
+      function doAction () {
+        data.messages += '<li>' + data.message + '</li>'
+      }

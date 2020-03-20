@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<title>HTML5サンプル1</title>
+<meta charset='UTF-8'>
+<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+</head>
+<body>
+<h1>vuejs サンプル</h1>
+<div id='app'>
+<ol v-html='messages'></ol>
+<input onInput='doInput(event)' type='text'>
+<button onClick='doAction()'>
+click!
+</button>
+</div>
+<script>
+  var data = { messages: '<li>first</li>' }
+  
+  var app = new Vue({
+    el: '#app',
+    data: data
+  })
+  
+  function doInput (event) {
+    data.message = event.target.value
+  }
+  
+  function doAction () {
+    data.messages += '<li>' + data.message + '</li>'
+  }
+</script>
+</body>
+</html>
