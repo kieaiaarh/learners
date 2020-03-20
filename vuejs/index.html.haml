@@ -9,8 +9,9 @@
     %h1 vuejs サンプル
     #app
       %ol{ v: { html: 'messages' } }
-      %input{ type: 'text', value: 'doInput(event)' }
+      %input{ type: 'text', oninput: 'doInput(event)', name: 'target' }
       %button{ onclick: 'doAction()' }
+        click!
     :javascript
       var data = { messages: '<li>first</li>' }
 
@@ -25,4 +26,5 @@
 
       function doAction () {
         data.messages += '<li>' + data.message + '</li>'
+        document.getElementsByName("target")[0].value = ''
       }

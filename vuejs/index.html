@@ -10,8 +10,8 @@
 <h1>vuejs サンプル</h1>
 <div id='app'>
 <ol v-html='messages'></ol>
-<input onInput='doInput(event)' type='text'>
-<button onClick='doAction()'>
+<input name='target' oninput='doInput(event)' type='text'>
+<button onclick='doAction()'>
 click!
 </button>
 </div>
@@ -29,6 +29,7 @@ click!
   
   function doAction () {
     data.messages += '<li>' + data.message + '</li>'
+    document.getElementsByName("target")[0].value = ''
   }
 </script>
 </body>
