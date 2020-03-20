@@ -8,6 +8,8 @@
   %body
     %h1 vuejs サンプル
     #app
+      -# {{ message }} だとhtmlタグは出力できない、あくまで値（オブジェクト）のみ
+      -# テンプレート構文: htmlタグを出力できる
       %ol{ v: { html: 'messages' } }
       %input{ type: 'text', oninput: 'doInput(event)', name: 'target' }
       %button{ onclick: 'doAction()' }
