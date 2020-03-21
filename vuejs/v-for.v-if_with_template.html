@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<title>HTML5サンプル1</title>
+<meta charset='UTF-8'>
+<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+</head>
+<body>
+<h1>vuejs サンプル</h1>
+<div id='app'>
+<table>
+<tr>
+<th>ID</th>
+<th>name</th>
+<th>mail</th>
+<th>tel</th>
+</tr>
+<tr v-for='(item, id) in items'>
+<template v-if='id % 2 == 0'>
+<td>{{id}}</td>
+<td>{{item.name}}</td>
+<td>{{item.mail}}</td>
+<td>{{item.tel}}</td>
+</template>
+<template v-if='id % 2 != 0'>
+<td>**</td>
+<td>**</td>
+<td>**</td>
+<td>**</td>
+</template>
+</tr>
+</table>
+</div>
+<script>
+  var data = {
+    items:[
+        {name:'Taro', mail:'taro@yamada', tel:'999-999'},
+        {name:'Hanako', mail:'hanako@flower', tel:'888-888'},
+        {name:'Sachiko', mail:'sachiko@happy', tel:'777-777'},
+        {name:'Jiro', mail:'jiro@change', tel:'666-666'},
+        {name:'mami', mail:'mami@mumemo', tel:'555-555'},
+    ]
+  }
+  
+  var app = new Vue({
+    // 初期値
+    el: '#app', // このセレクター の範囲で
+    data: data // dataオブジェクト内の変数
+  })
+</script>
+</body>
+</html>
