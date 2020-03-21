@@ -17,6 +17,8 @@
     :javascript
       var hello = Vue.component('hello',
       {
+          // 静的な値はpropsプロパティ
+          // 動的な値は、dataプロパティ
           data:function() {
               return {
                   counter:0,
