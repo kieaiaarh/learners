@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My first Vue app</title>
+<script src='https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js'></script>
+<style>
+  .hello {
+    font-size:20pt;
+    font-weight:bold;
+    border:1px solid magenta;
+    padding:5px 10px 0px 10px;
+    margin:10px;
+  }
+</style>
+</head>
+<body>
+<h1>Vue.js</h1>
+<div id='app'>
+<div>
+<hello name='Taro'></hello>
+</div>
+<div>
+<hello name='Hanako'></hello>
+</div>
+</div>
+<script>
+  // 1.Vueコンポーネントを作成し
+  Vue.component('hello', //helloタグにbind
+  {
+      props:['name'],
+      template: '<p class="hello">Hello, {{name}}!</p>',
+  })
+  // 2.Vueオブジェクト作成
+  var app = new Vue({
+      el: '#app',
+  });
+  
+  // helloタグと1.2を合わせてコンポーネントと呼ぶ
+  // 一度コンポーネントを作れば、あとはタグを表示したいhtmlに埋め込めば、
+  // 1,2のVueオブジェクトの作成部分を再利用できる
+</script>
+</body>
+</html>
