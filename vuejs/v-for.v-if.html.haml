@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title HTML5サンプル1
+    %meta{:charset => "UTF-8"}/
+    %script{:src => "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"}
+  %body
+    %h1 vuejs サンプル
+    #app
+      %table
+        %tr
+          %th ID
+          %th name
+          %th mail
+          %th tel
+        %tr{ 'v-for':"(item, id) in items", 'v-if':"id % 2 == 0" }
+          %td {{id}}
+          %td {{item.name}}
+          %td {{item.mail}}
+          %td {{item.tel}}
+    :javascript
+      var data = {
+        items:[
+            {name:'Taro', mail:'taro@yamada', tel:'999-999'},
+            {name:'Hanako', mail:'hanako@flower', tel:'888-888'},
+            {name:'Sachiko', mail:'sachiko@happy', tel:'777-777'},
+            {name:'Jiro', mail:'jiro@change', tel:'666-666'},
+            {name:'mami', mail:'mami@mumemo', tel:'555-555'},
+        ]
+      }
+
+      var app = new Vue({
+        // 初期値
+        el: '#app', // このセレクター の範囲で
+        data: data // dataオブジェクト内の変数
+      })
+

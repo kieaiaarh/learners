@@ -602,6 +602,7 @@ function doAction() {
     </style>
     <h1>Vue.js</h1>
     <div id="app">
+        # 複数のタグを一まとめにする場合に使うのがtemplateタグ
         <template v-if="flag">
             <p>※データをテーブル表示する</p>
             <table>
