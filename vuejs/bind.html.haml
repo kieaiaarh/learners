@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title HTML5サンプル1
+    %meta{:charset => "UTF-8"}/
+    %script{:src => "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"}
+  %body
+    %h1 vuejs サンプル
+    #app
+      -# {{ message }} だとhtmlタグは出力できない、あくまで値（オブジェクト）のみ
+      -# テンプレート構文: htmlタグを出力できる
+      %p{ 'v-bind:style': 'style' }
+        {{ message }}
+    %hr
+    %input{ type: 'number', onChange: 'doChange(event)', name: 'target', value: 20 }
+    :javascript
+      var data = {
+        message: 'メッセージ',
+        style: 'font-size:12px;color:red'
+      }
+
+      var app = new Vue({
+        // 初期値
+        el: '#app', // このセレクター の範囲で
+        data: data // dataオブジェクト内の変数が使える
+      })
+
+      function doChange (event) {
+        data.style = 'font-size:' + event.target.value + 'pt;color:red'
+      }
