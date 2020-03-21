@@ -24,6 +24,9 @@
       Vue.component('hello', //helloタグにbind
       {
           props:['name'], //テンプレートのメッセをtemplate外から指定できるようになる
+          // props:{ name: String }, //テンプレートのメッセをtemplate外から指定できるようになる
+          // props:{ 名前: String, ... }, //データのタイプを指定することも可能
+          // 指定できるのは、「String, Number, Boolean, Array, Object」
           template: '<p class="hello">Hello, {{name}}!</p>', // propsで指定した属性名がそのまま変数として使える
       })
       // 2.Vueオブジェクト作成
