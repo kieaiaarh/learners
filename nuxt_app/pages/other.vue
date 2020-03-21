@@ -3,7 +3,7 @@
     <h1>{{title}}</h1>
     <p>{{message}}</p>
     <hr>
-    <router-link to="/other">Go to Other</router-link>
+    <router-link to="/">Go to Top</router-link>
   </section>
 </template>
 
@@ -13,9 +13,8 @@ import Logo from '~/components/Logo.vue'
 export default {
   data: function() {
     return {
-        title: 'title',
-        message: 'message',
-        now: 'waiting...'
+        title: 'Other',
+        message: 'これは別のページ',
       }
   },
   created: function() {
