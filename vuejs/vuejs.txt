@@ -193,8 +193,8 @@ var app = new Vue({
     el: '#app',
     data: data,
     render: (element)=>{
-        return element("p", 
-            {'style':'font-size:20pt; color:red;'}, 
+        return element("p",
+            {'style':'font-size:20pt; color:red;'},
             data.message);
     }
 })
@@ -207,11 +207,11 @@ var app = new Vue({
    el: '#app',
    data: data,
    render: (element)=>{
-       return element("ol", 
+       return element("ol",
        [
             element("li","item 1"),
            element("li","item 2"),
-           element("li","item 3") 
+           element("li","item 3")
         ]);
    }
 })
@@ -242,8 +242,8 @@ var app = new Vue({
         el: '#app',
         data: data,
         render: (element)=>{
-            var p = element("p", 
-                {style:'font-size:20pt;'}, 
+            var p = element("p",
+                {style:'font-size:20pt;'},
                 data.message);
             var li = data.items.map(item=> element('li', item));
             var ol = element("ol", li);
@@ -273,10 +273,10 @@ var app = new Vue({
 var app = new Vue({
     el: '#app',
     data: data,
-    render: (h)=>{ 
+    render: (h)=>{
         return h("div", [
-            h("p", 
-                {style:'font-size:20pt;'}, 
+            h("p",
+                {style:'font-size:20pt;'},
                 data.message),
             h("ol",
                 data.items.map(i=> h('li', i))
@@ -350,7 +350,7 @@ var app = new Vue({
 
 ▼リスト2-13
 function doAction() {
-    data.messages = '<li>' + data.message 
+    data.messages = '<li>' + data.message
         + '</li>' + data.messages;
 }
 
@@ -514,7 +514,7 @@ function doAction() {
         styles: {
             margin:'10px',
             padding:'5px 20px',
-            fontSize:'20pt', 
+            fontSize:'20pt',
             color:'red',
             backgroundColor:'#fee',
             border:'3px solid blue'
@@ -845,7 +845,7 @@ function doAction() {
 
 
     <script>
-    Vue.component('hello', 
+    Vue.component('hello',
     {
         template: '<p class="hello">Hello!</p>'
     })
@@ -872,10 +872,10 @@ function doAction() {
 
 
     <script>
-    Vue.component('hello', 
+    Vue.component('hello',
     {
         data:function() {
-            return { 
+            return {
                 message: 'これは新しいメッセージです。'
             };
         },
@@ -902,7 +902,7 @@ function doAction() {
 
 
     <script>
-    Vue.component('hello', 
+    Vue.component('hello',
     {
         props:['name'],
         template: '<p class="hello">Hello, {{name}}!</p>',
@@ -927,7 +927,7 @@ function doAction() {
 
 
     <script>
-    var hello = Vue.component('hello', 
+    var hello = Vue.component('hello',
     {
         props:['name'],
         template: '<p class="hello">Hello, {{name}}!</p>',
@@ -956,7 +956,7 @@ function doAction() {
 
 
     <script>
-    var hello = Vue.component('hello', 
+    var hello = Vue.component('hello',
     {
         props:['name'],
         template: '<p class="hello">Hello, {{name}}!</p>',
@@ -984,11 +984,11 @@ function doAction() {
 
 
     <script>
-    var hello = Vue.component('hello', 
+    var hello = Vue.component('hello',
     {
         data:function() {
-            return { 
-                counter:0 
+            return {
+                counter:0
             };
         },
         template: '<p onclick="counter++;"class="hello">clicked: {{counter}}.</p>',
@@ -1025,10 +1025,10 @@ template: '<p v-on:click="counter++;"class="hello">clicked: {{counter}}.</p>',
 
 
     <script>
-    var hello = Vue.component('hello', 
+    var hello = Vue.component('hello',
     {
         data:function() {
-            return { 
+            return {
                 counter:0,
                 isRed:false,
             };
@@ -1070,7 +1070,7 @@ template: '<p v-on:click="counter++;"class="hello">clicked: {{counter}}.</p>',
     <script>
     Vue.component('hello', {
         data:function() {
-            return { 
+            return {
                 num:0,
                 message:'type a number.',
             };
@@ -1094,7 +1094,7 @@ template: '<p v-on:click="counter++;"class="hello">clicked: {{counter}}.</p>',
 
     var app = new Vue({
         el: '#app',
-        
+
     });
     </script>
 </body>
@@ -1113,7 +1113,7 @@ template: '<p v-on:click="counter++;"class="hello">clicked: {{counter}}.</p>',
     <script>
     Vue.component('hello', {
         data:function() {
-            return { 
+            return {
                 num:0,
             };
         },
@@ -1135,7 +1135,7 @@ template: '<p v-on:click="counter++;"class="hello">clicked: {{counter}}.</p>',
 
     var app = new Vue({
         el: '#app',
-        
+
     });
     </script>
 </body>
@@ -1158,7 +1158,7 @@ template: '<p v-on:click="counter++;"class="hello">clicked: {{counter}}.</p>',
         components:{
             hello:{
                 data:function() {
-                    return { 
+                    return {
                         counter:0,
                     };
                 },
@@ -1235,7 +1235,7 @@ export default {
   </head>
   <body>
     <noscript>
-      <strong>We're sorry but hello_app doesn't work properly 
+      <strong>We're sorry but hello_app doesn't work properly
           without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
@@ -1435,7 +1435,7 @@ export default {
 ▼リスト3-21
 <template>
   <div id="app">
-    <HelloWorld v-bind:title="message" 
+    <HelloWorld v-bind:title="message"
       v-on:result-event="appAction" />
     <hr>
     <p>{{result}}</p>
@@ -1479,7 +1479,7 @@ export default {
     <p>{{ message }}</p>
     <hr>
     <div>
-      <div><textarea v-model="fomula" 
+      <div><textarea v-model="fomula"
         cols="40" rows="5"></textarea></div>
       <div><button v-on:click="doAction">CALC</button></div>
     </div>
@@ -1528,7 +1528,7 @@ export default {
 ▼リスト3-23
 <template>
   <div id="app">
-    <Calc v-bind:title="message" 
+    <Calc v-bind:title="message"
       v-on:result-event="appAction" />
     <hr>
     <div><table v-html="log"></table></div>
@@ -1555,7 +1555,7 @@ export default {
     log:function() {
       var table = '<tr><th class="head">Expression</th><th class="head">Value</th></tr>';
       for(var i in this.result){
-        table += '<tr><td>' + this.result[i][0] + '</td><th>' 
+        table += '<tr><td>' + this.result[i][0] + '</td><th>'
           + this.result[i][1] + '</th></tr>';
       }
       return table;
@@ -1639,7 +1639,7 @@ export default {
 ▼リスト4-2
 <template>
   <div id="app">
-    <HelloWorld v-bind:title="message" 
+    <HelloWorld v-bind:title="message"
       v-bind:num="num" />
   </div>
 </template>
@@ -1709,7 +1709,7 @@ export default {
 export default {
   name: 'HelloWorld',
   props: {
-    title: String, 
+    title: String,
   },
   data:function(){
     return {
@@ -1772,7 +1772,7 @@ export default {
 export default {
   name: 'HelloWorld',
   props: {
-    title: String, 
+    title: String,
   },
   data: function(){
     return {
@@ -1828,7 +1828,7 @@ export default {
 export default {
   name: 'HelloWorld',
   props: {
-    title: String, 
+    title: String,
   },
   data: function(){
     return {
@@ -1837,15 +1837,15 @@ export default {
   },
   methods: {
     a_event: function(event){
-      this.message += "A-Event [" + event.target.id 
+      this.message += "A-Event [" + event.target.id
         + ' → ' + event.currentTarget .id + "]\n";
     },
     b_event: function(event){
-      this.message += "B-Event [" + event.target.id 
+      this.message += "B-Event [" + event.target.id
         + ' → ' + event.currentTarget .id + "]\n";
     },
     c_event: function(event){
-      this.message += "C-Event [" + event.target.id 
+      this.message += "C-Event [" + event.target.id
         + ' → ' + event.currentTarget .id + "]\n";
     },
     clear: function(){
@@ -1914,7 +1914,7 @@ div.in {
 export default {
   name: 'HelloWorld',
   props: {
-    title: String, 
+    title: String,
   },
   data: function(){
     return {
@@ -1945,10 +1945,10 @@ export default {
     <h1>{{ title }}</h1>
     <pre>{{ message }}</pre>
     <hr>
-    <div><input type="text" 
+    <div><input type="text"
       v-on:keypress="type"
       v-on:keydown.delete="clear"
-      v-on:keydown.space="space" 
+      v-on:keydown.space="space"
       v-on:keydown.enter="enter"></div>
   </div>
 </template>
@@ -1958,7 +1958,7 @@ export default {
 export default {
   name: 'HelloWorld',
   props: {
-    title: String, 
+    title: String,
   },
   data: function(){
     return {
@@ -2011,7 +2011,7 @@ export default {
 export default {
   name: 'HelloWorld',
   props: {
-    title: String, 
+    title: String,
   },
   data: function(){
     return {
@@ -2075,7 +2075,7 @@ export default {
 export default {
   name: 'HelloWorld',
   props: {
-    title: String, 
+    title: String,
   },
   data: function(){
     return {
@@ -2126,7 +2126,7 @@ export default {
 export default {
   name: 'HelloWorld',
   props: {
-    title: String, 
+    title: String,
   },
   data: function(){
     return {
@@ -2488,10 +2488,10 @@ export default {
     <button v-on:click="doAction">
     {{btn}}
     </button>
-    <transition name="transit" 
+    <transition name="transit"
         v-on:before-enter="startAction"
         v-on:before-leave="startAction"
-        v-on:after-enter="endAction" 
+        v-on:after-enter="endAction"
         v-on:after-leave="endAction">
       <p v-if="flg" class="trans">Transition!</p>
     </transition>
@@ -2779,9 +2779,9 @@ export default {
   created: function(){
     setInterval(()=>{
       var d = new Date();
-      this.now = d.getHours() 
+      this.now = d.getHours()
           + ':' + d.getMinutes()
-          + ':' + d.getSeconds();  
+          + ':' + d.getSeconds();
     }, 1000);
   },
 };
@@ -2891,9 +2891,9 @@ export default {
   },
   computed: {
       message: function() {
-        let id = this.$route.params.id != undefined 
+        let id = this.$route.params.id != undefined
             ? this.$route.params.id : '*** no id ***';
-        let pass = this.$route.params.pass != undefined 
+        let pass = this.$route.params.pass != undefined
             ? this.$route.params.pass : '*** no password ***';
         return 'ID：' + id  + '<br>PASS：' + pass;
       },
@@ -3192,7 +3192,7 @@ const createStore = () => {
         state.counter += n;
       },
       say: function(state, msg) {
-        state.message =msg; 
+        state.message =msg;
       },
       reset: function(state) {
           state.counter = 0;
@@ -3241,7 +3241,7 @@ const createStore = () => {
       doit: function(state) {
         var n = Math.floor(Math.random() * 10);
         state.counter += n;
-        state.message = 'add ' + n + '.'; 
+        state.message = 'add ' + n + '.';
       },
       reset: function(state) {
         state.counter = 0;
@@ -3290,7 +3290,7 @@ export const mutations = {
   doit(state) {
     var n = Math.floor(Math.random() * 10);
     state.counter += n;
-    state.message = 'add ' + n + '.'; 
+    state.message = 'add ' + n + '.';
   },
   reset(state) {
     state.counter = 0;
@@ -3335,7 +3335,7 @@ export const mutations = {
             created: fmt
         });
     },
-    
+
     set_page: function(state, p) {
         state.page = p;
     },
@@ -3343,7 +3343,7 @@ export const mutations = {
         var num = 0;
         for (let i = 0; i < state.memo.length; i++) {
             const ob = state.memo[i];
-            if (ob.title == obj.title 
+            if (ob.title == obj.title
                     && ob.content == obj.content
                     && ob.created == obj.created){
                 alert('remove it! --' + ob.title);
@@ -3364,7 +3364,7 @@ export const mutations = {
         <table>
         <tr>
             <th>Title</th>
-            <td><input type="text" name="title" 
+            <td><input type="text" name="title"
                 class="title" size="40"
                 v-model="title" @focus="set_flg">
             <button @click="find">find</button></td>
@@ -3372,14 +3372,14 @@ export const mutations = {
         <tr>
             <th>Memo</th>
             <td><textarea name="content" class="content"
-                cols="50" rows="5" 
+                cols="50" rows="5"
                 v-model="content"></textarea></td>
         </tr>
         <tr>
             <th></th>
             <td><button @click="insert">save</button>
             <transition name="del">
-                <button v-if="sel_flg != false" 
+                <button v-if="sel_flg != false"
                     @click="remove">delete</button>
             </transition>
             </td>
@@ -3426,7 +3426,7 @@ export default {
                 return [this.sel_flg];
             } else {
                 return this.$store.state.memo.memo.slice(
-                    this.num_per_page * this.$store.state.memo.page, 
+                    this.num_per_page * this.$store.state.memo.page,
                     this.num_per_page * (this.$store.state.memo.page + 1));
             }
         },
@@ -3436,7 +3436,7 @@ export default {
             },
             set: function(p) {
                 var pg = p > (this.$store.state.memo.memo.length - 1)
-                    / this.num_per_page ? 
+                    / this.num_per_page ?
                     Math.ceil((this.$store.state.memo.memo.length - 1)
                     / this.num_per_page) - 1 : p;
                 pg = pg < 0 ? 0 : pg;
@@ -3454,8 +3454,8 @@ export default {
             }
         },
         insert: function(){
-            this.$store.commit('memo/insert', 
-                {title:this.title, content:this.content}); 
+            this.$store.commit('memo/insert',
+                {title:this.title, content:this.content});
             this.title = '';
             this.content = '';
         },
@@ -3982,7 +3982,7 @@ export default {
     methods: {
         getData: function() {
             let range = this.find.split(',');
-            let age_url = url + "&startAt=" + range[0] 
+            let age_url = url + "&startAt=" + range[0]
                 + "&endAt=" + range[1];
             axios.get(age_url).then((res) => {
                 this.message = 'get: ' + range[0] + ' < age < ' + range[1];
@@ -4199,7 +4199,7 @@ export default {
     var self = this;
     firebase.auth().signInWithPopup(provider)
       .then(function(result) {
-        self.message = result.user.displayName + ', ' 
+        self.message = result.user.displayName + ', '
           + result.user.email;
       });
   },
@@ -4545,7 +4545,7 @@ function MyObj(r, g, b) {
 
 
     this.getStartP = function(){
-        return '<p style="background-color:' 
+        return '<p style="background-color:'
             + this.getHex() + '">';
     }
 
@@ -4595,7 +4595,7 @@ class MyObj {
 
 
     get startP(){
-        return '<p style="background-color:' 
+        return '<p style="background-color:'
             + this.hex + '">';
     }
 
