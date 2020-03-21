@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title HTML5サンプル1
+    %meta{:charset => "UTF-8"}/
+    %script{:src => "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"}
+  %body
+    :css
+      .red {
+          color:white;
+          background-color:red;
+      }
+    %h1 Vue.js
+    #app
+      %hello
+    :javascript
+      var hello = Vue.component('hello',
+      {
+          data:function() {
+              return {
+                  counter:0,
+                  classes: {
+                    red: false,
+                  }
+              };
+          },
+          methods:{
+              doAction:function(event) {
+                  this.counter++;
+                  this.classes.red = !this.classes.red;
+                  if (this.counter > 10){
+                      this.counter = 0;
+                  }
+              },
+          },
+          template: '<p v-bind:class="classes" v-on:click="doAction"class="hello">clicked: {{counter}}</p>',
+      })
+
+
+      var app = new Vue({
+          el: '#app',
+      });
+
