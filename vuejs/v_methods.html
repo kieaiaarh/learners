@@ -34,7 +34,7 @@
           this.isRed = !this.isRed;
         },
       },
-      template: '<p @click="doAction" v-bind:class="{ red: isRed }" class="hello">clicked: {{counter}}.</p>',
+      template: '<p @click="doAction" :class="{ red: isRed }" class="hello">clicked: {{counter}}.</p>',
       // template: '<p v-on:click="counter++;"class="hello">clicked: {{counter}}.</p>',
       // v-on:イベント名でコンポーネント内部で使われる変数へアクセスできる
   })
