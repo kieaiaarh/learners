@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %title My first Vue app
+    %script{:src => "https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"}
+    :css
+      .red {
+        color: white;
+        background-color: red;
+      }
+  %body
+    %h1 Vue.js
+    #app
+      %hello
+    :javascript
+      // 1.Vueコンポーネントを作成し
+      var hello = Vue.component('hello',
+      {
+          data: function() {
+              return {
+                num: 0,
+                total: 0,
+                message: 'type a number'
+              };
+          },
+          methods: {
+            calc: function (event) {
+              this.total = this.total + this.num;
+              this.message = 'total: ' + Number(this.total);
+            },
+          },
+          template: `
+            <div>
+              <p class="hello">{{message}}</p>
+              <div><input type="number" v-on:input="calc" v-model="num"></div>
+            </div>
+          `,
+      })
+
+
+      var app = new Vue({
+          el: '#app',
+      });
