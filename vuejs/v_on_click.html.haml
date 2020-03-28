@@ -18,11 +18,20 @@
       %hello
     :javascript
       // 1.Vueコンポーネントを作成し
-      Vue.component('hello', //helloタグにbind
+      var hello = Vue.component('hello',
       {
-          template: '<p class="hello">Hello!</p>'
+          data: function() {
+              return {
+                  counter:0 // クロージャ => counterの値が保持される && 外からアクセス不可
+                  // コンポーネント内部で使われる変数
+              };
+          },
+          template: '<p @click="counter++;"class="hello">clicked: {{counter}}.</p>',
+          // template: '<p v-on:click="counter++;"class="hello">clicked: {{counter}}.</p>',
+          // v-on:イベント名でコンポーネント内部で使われる変数へアクセスできる
       })
-      // 2.Vueオブジェクト作成
+
+
       var app = new Vue({
           el: '#app',
       });
