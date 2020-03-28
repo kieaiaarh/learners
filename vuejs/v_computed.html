@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My first Vue app</title>
+<script src='https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js'></script>
+<style>
+  .red {
+    color: white;
+    background-color: red;
+  }
+</style>
+</head>
+<body>
+<h1>Vue.js</h1>
+<div id='app'>
+<hello></hello>
+</div>
+<script>
+  // 1.Vueコンポーネントを作成し
+  var hello = Vue.component('hello',
+  {
+      data: function() {
+          return {
+            num: 0,
+          };
+      },
+      computed: { // numの値が変更されるとここの更新が動く => クリック等のイベントではなく、値の変化に応じて着火する
+        calc: function (event) {
+          var total = 0
+          total = Number(total) + Number(this.num);
+          return 'total: ' + Number(total);
+        },
+      },
+      template: `
+        <div>
+          <p class="hello">{{calc}}</p>
+          <div><input type="number" v-model="num"></div>
+        </div>
+      `,
+  })
+  
+  
+  var app = new Vue({
+      el: '#app',
+  });
+</script>
+</body>
+</html>
