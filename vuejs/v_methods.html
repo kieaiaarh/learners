@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My first Vue app</title>
+<script src='https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js'></script>
+<style>
+  .red {
+    color: white;
+    background-color: red;
+  }
+</style>
+</head>
+<body>
+<h1>Vue.js</h1>
+<div id='app'>
+<hello></hello>
+</div>
+<script>
+  // 1.Vueコンポーネントを作成し
+  var hello = Vue.component('hello',
+  {
+      data: function() {
+          return {
+            counter: 0,
+            isRed: false
+          };
+      },
+      methods: {
+        doAction: function (event) {
+          this.counter++;
+          if (this.counter > 10) {
+            this.counter = 0
+          }
+          this.isRed = !this.isRed;
+        },
+      },
+      template: '<p @click="doAction" v-bind:class="{ red: isRed }" class="hello">clicked: {{counter}}.</p>',
+      // template: '<p v-on:click="counter++;"class="hello">clicked: {{counter}}.</p>',
+      // v-on:イベント名でコンポーネント内部で使われる変数へアクセスできる
+  })
+  
+  
+  var app = new Vue({
+      el: '#app',
+  });
+  
+  // helloタグと1.2を合わせてコンポーネントと呼ぶ
+  // 一度コンポーネントを作れば、あとはタグを表示したいhtmlに埋め込めば、
+  // 1,2のVueオブジェクトの作成部分を再利用できる
+</script>
+</body>
+</html>
